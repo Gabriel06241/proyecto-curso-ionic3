@@ -1,0 +1,51 @@
+<!--
+  Generated template for the BuscarVacantePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <!-- <ion-title>Buscar Vacante</ion-title> -->
+    <ion-title>Empresas</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="allUbicationsMap()">
+      <ion-icon ios="ios-pin" md="md-pin"></ion-icon>All</button>
+    </ion-buttons> 
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <ion-item>
+    <ion-label floating>Busqueda por:</ion-label>
+    <ion-select multiple="false" [(ngModel)]="buscarTipo">
+      <ion-option value='codigo' (click)="test1()">Código</ion-option>
+      <ion-option value='ubicacion' (click)="test2()">Ubicación</ion-option>
+      <ion-option value='qr' (click)="test3()">Escanear Qr</ion-option> -->
+      <!-- <ion-option *ngFor="let semestre of semestres" value='Semestre-{{semestre}}'>Semestre-{{semestre}}</ion-option> -->
+      <!-- <ion-item *ngFor="let multa of multas | async" detail-push navPush="EditMultaPage" [navParams]="{ multa: multa }">
+        {{multa.fecha}} {{multa.descripcion}}
+      </ion-item> -->
+    <!-- </ion-select>
+  </ion-item> -->
+
+  <ion-input type="text" placeholder="Buscar Vacantes..." (input)="buscarMaps($event)"></ion-input>
+
+  <ion-list *ngIf="!isFiltered">
+    <ion-item *ngFor="let empresa of empresaList" (click)="buscarLista($event, empresa)">
+      <h2><ion-icon ios="ios-pin" md="md-pin"></ion-icon>{{empresa.nombre}}</h2>
+      <p>Dirección: {{empresa.direccion}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="isFiltered">
+    <ion-item *ngFor="let empresa of filteredEmpresas" (click)="buscarLista($event, empresa)">
+      <h2><ion-icon ios="ios-pin" md="md-pin"></ion-icon>{{empresa.nombre}}</h2>
+        <p>Dirección: {{empresa.direccion}}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,77 @@
+<!--
+  Generated template for the UsuarioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Gestión de Usuarios</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>
+      <p ion-text color="danger" *ngIf="cedula.errors?.required">*</p>
+      Cédula / Código
+    </ion-label>
+    <!-- <ion-input type='text' [(ngModel)]='usuario.cedula' required></ion-input> -->
+    <ion-input type="text" [(ngModel)]="usuario.cedula" name="cedula" #cedula="ngModel" required number></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="person" item-start></ion-icon>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input type='text' [(ngModel)]='usuario.nombre' required></ion-input>
+  </ion-item>
+  <!-- <ion-item>
+    <ion-icon name="mail" item-start></ion-icon>
+    <ion-label floating>Correo:</ion-label>
+    <ion-input type='text' [(ngModel)]='usuario.correo' required></ion-input>
+  </ion-item> -->
+  <ion-item>
+    <ion-icon name="mail" item-start></ion-icon>
+    <ion-label floating >
+      <p ion-text color="danger" *ngIf="correo.errors?.email">*</p> 
+      Correo
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.correo" name="correo" #correo="ngModel" required email></ion-input>
+  </ion-item>
+  <!-- <p ion-text color="danger" *ngIf="correo.errors?.email">El correo electronico indicado no es valido.</p> -->
+  <!-- <p ion-text color="danger" *ngIf="correo.errors">ERRORES: {{ correo.errors | json}}</p> -->
+
+  <ion-item>
+    <ion-label floating>Programa</ion-label>
+    <ion-select multiple="false" [(ngModel)]='usuario.programa'>
+      <ion-option value='Ingenieria Sistemas'>Ingenieria Sistemas</ion-option>
+      <ion-option value='Ingenieria Electronica'>Ingenieria Electronica</ion-option>
+      <ion-option value='Ingenieria Industrial'>Ingenieria Industrial</ion-option>
+      <ion-option value='Diseño Visual'>Diseño Visual</ion-option>
+      <ion-option value='Trabajo Social'>Trabajo Social</ion-option>
+      <ion-option value='Administracion de Empresas'>Administración de Empresas</ion-option>
+      <ion-option value='Contaduria Publica'>Contaduria Publica</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Semestre</ion-label>
+    <ion-select multiple="false" [(ngModel)]="usuario.semestre">
+      <ion-option *ngFor="let semestre of semestres" value='{{semestre}}'>Semestre-{{semestre}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>
+      <p ion-text color="danger" *ngIf="perfil.errors?.required">*</p>
+      Perfil
+    </ion-label>
+    <ion-select multiple="false" [(ngModel)]='usuario.perfil' name="perfil" #perfil="ngModel" required>
+      <ion-option value='Estudiante'>Estudiante</ion-option>
+      <ion-option value='Director'>Director</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item no-lines>
+    <ion-label>Activo</ion-label>
+    <ion-toggle [(ngModel)]='usuario.activo'>Activo</ion-toggle>
+  </ion-item>
+  <br>
+  <button ion-button block (click)="createOrUpdateUsuario(usuario)">Guardar Usuario</button>
+</ion-content>

@@ -21,19 +21,66 @@
     "@angular/http": "5.2.10",
     "@angular/platform-browser": "5.2.10",
     "@angular/platform-browser-dynamic": "5.2.10",
+    "@ionic-native/barcode-scanner": "^4.7.0",
+    "@ionic-native/camera": "^4.7.0",
     "@ionic-native/core": "4.7.0",
+    "@ionic-native/geolocation": "^4.7.0",
+    "@ionic-native/google-maps": "^4.8.2",
     "@ionic-native/splash-screen": "4.7.0",
     "@ionic-native/status-bar": "4.7.0",
     "@ionic/storage": "2.1.3",
+    "angularfire2": "^5.0.0-rc.3",
+    "cordova-android": "7.0.0",
+    "cordova-android-play-services-gradle-release": "^1.4.1",
+    "cordova-plugin-camera": "^4.0.3",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-googlemaps": "^2.3.4",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
+    "cordova-plugin-ionic-webview": "^1.2.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "firebase": "^4.8.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "ng2-validation": "^4.2.0",
+    "phonegap-plugin-barcodescanner": "^7.1.2",
     "rxjs": "5.5.10",
     "sw-toolbox": "3.6.0",
+    "ts-md5": "^1.2.4",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.9",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-camera": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyBR5tBOm2e05Uc5CCvygdLQK2AD4guNSHM",
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "26.1.0",
+        "API_KEY_FOR_IOS": "(API_KEY_FOR_IOS)"
+      },
+      "cordova-plugin-geolocation": {
+        "GEOLOCATION_USAGE_DESCRIPTION": "Located here!"
+      },
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-android-play-services-gradle-release": {
+        "PLAY_SERVICES_VERSION": "15.+"
+      }
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

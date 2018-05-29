@@ -1,0 +1,66 @@
+<!--
+  Generated template for the VacantePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Gestión de Vacantes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Empresa</ion-label>
+    <!-- <ion-input type='text' [(ngModel)]='vacante.empresa'></ion-input> -->
+    <ion-select multiple="false" [(ngModel)]="vacante.empresa">
+      <ion-option *ngFor="let empresa of empresasList" (ionSelect)="selectEmpresa($event, empresa)" value="{{empresa.nombre}}">{{empresa.nombre}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Dirección</ion-label>
+    <ion-input type='text' [(ngModel)]='vacante.direccion' disabled></ion-input>
+    <h4 *ngIf="vacante.direccion">Latitude: {{vacante.direccion}}</h4>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Cargo</ion-label>
+    <ion-input type='text' [(ngModel)]='vacante.cargo'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Salario</ion-label>
+    <ion-input type='number' [(ngModel)]='vacante.salario'></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Codigo Vacante</ion-label>
+    <ion-input type='text' [(ngModel)]='vacante.codigo'></ion-input>
+  </ion-item>
+  <!-- <ion-item>
+    <ion-label floating>Perfil</ion-label>
+    <ion-input type='text' [(ngModel)]='vacante.perfil'></ion-input>
+  </ion-item> -->
+  <ion-item>
+    <ion-label floating>
+      Perfil
+    </ion-label>
+    <ion-select multiple="false" [(ngModel)]='vacante.perfil'>
+      <ion-option value='Junior'>Junior</ion-option>
+      <ion-option value='Semi - Senior'>Semi - Senior</ion-option>
+      <ion-option value='Senior'>Senior</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Activo</ion-label>
+    <ion-toggle checked='true' [(ngModel)]='vacante.activo'>Activo</ion-toggle>
+  </ion-item>
+  <ion-card>
+    <ion-card-content>
+      <img [src]="base64Image" *ngIf="base64Image" />
+    </ion-card-content>
+    <button ion-button block (click)="takePhoto()" >Tomar Foto!</button>
+  </ion-card>
+  <!-- <button ion-button block (click)="takePhoto()" >Tomar Foto!</button> -->
+  <button ion-button block (click)="createOrUpdateVacante(vacante)">Guardar Vacante</button>
+</ion-content>
